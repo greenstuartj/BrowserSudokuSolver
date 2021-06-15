@@ -1,0 +1,67 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 1e1200750314a844ff77762b3ae68ffd199ab64983783d8d774234764e23b7d6
+
+name:           WebSudoku
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/WebSudoku#readme>
+homepage:       https://github.com/githubuser/WebSudoku#readme
+bug-reports:    https://github.com/githubuser/WebSudoku/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2020 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/WebSudoku
+
+library
+  exposed-modules:
+     Sudoku
+   , SXML
+  other-modules:
+      Paths_WebSudoku
+  hs-source-dirs:
+      src
+  build-depends:
+      containers
+   ,  text
+   ,  base
+  default-language: Haskell2010
+
+executable WebSudoku
+  main-is: Main.hs
+  other-modules:
+      Paths_WebSudoku
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall
+  build-depends:
+      WebSudoku
+    , scotty
+    , text
+    , base
+  default-language: Haskell2010
+
+test-suite WebSudoku-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_WebSudoku
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      WebSudoku
+    , base
+  default-language: Haskell2010
