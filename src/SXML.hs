@@ -53,23 +53,3 @@ sxmlShow (SXML (first:rest)) =
 
 instance Show SXML where
   show = T.unpack . sxmlShow
-
-display stuff =
-  sxmlShow $ SXML
-  [ Tag "html"
-  , Attr [ ("lang", "en") ],
-    SXML
-    [ Tag "body"
-    , Attr [ ("bgcolor", "grey")
-           , ("style", "font-family:'Courier New'")
-           ]
-    , SXML
-      [ Tag "p"
-      , Data stuff]
-    , SXML
-      [ Tag "a"
-      , Attr [ ("href", "/page2") ]
-      , SXML [Tag "em"
-             , Data "GO TO"]
-      , Data " page 2..."]]]
-
